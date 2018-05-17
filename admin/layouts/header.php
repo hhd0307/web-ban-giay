@@ -1,8 +1,8 @@
 <?php 
 require_once '../library/init.php';
-// if($session->get() == '') {
-//     new Redirect("login.php");
-// }
+if($session->get() == '') {
+    new Redirect("login.php");
+}
 ?>
 
 <!DOCTYPE HTML>
@@ -36,13 +36,13 @@ require_once '../library/init.php';
 							<!--/.navbar-header-->
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li>
-										<a href="contact.html">Túi sách</a>
-									</li>
-									<li>
-										<a href="contact.html">Giày</a>
-									</li>
-								</ul>
+                                    <li>
+                                        <a href="the-loai.php">Thể loại</a>
+                                    </li>
+                                    <li>
+                                        <a href="san-pham.php">Sản phẩm</a>
+                                    </li>
+                                </ul>
 							</div>
 							<!--/.navbar-collapse-->
 						</nav>

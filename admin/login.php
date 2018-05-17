@@ -1,3 +1,27 @@
+<?php 
+    require_once '../library/init.php';
+    if (isset($_POST['Login'])) {
+        // echo 'ok';
+        // Xử lý các giá trị 
+        $Username = isset($_POST['Username']) ? trim(htmlspecialchars(addslashes($_POST['Username']))) : '';
+        $Password = isset($_POST['Password']) ? trim(htmlspecialchars(addslashes($_POST['Password']))) : '';
+        
+        if($Username == "" || $Password == "") {
+            echo '<script>alert("Không được để trống Username và Password")</script>';
+        } else {
+            $sql = "SELECT Username, Password FROM admin WHERE Username = '$Username' AND Password = '$Password'";
+            if($db->num_rows($sql)) {
+                $db->close(); // Giải phóng
+                $session->send($Username);
+                new Redirect("the-loai.php");
+            } else {
+                echo '<script>alert("Username hoặc Password không đúng")</script>';
+            }
+        }
+    }
+?>
+
+
 
 <!DOCTYPE HTML>
 <html>
@@ -25,7 +49,7 @@
 			<h2>Existing User</h2>
 			<form action="login.php" method="post">
 				<input type="text" name="Username" placeholder="Username" required="">
-				<input type="password" name="password" placeholder="Password" required="">
+				<input type="Password" name="Password" placeholder="Password" required="">
 				<input type="submit" name="Login" value="Login">
 			</form>
 		  </div>

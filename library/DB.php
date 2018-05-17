@@ -7,7 +7,7 @@ class DB
     private $hostname = 'localhost',
             $username = 'root',
             $password = '',
-            $dbname = 'tour';
+            $dbname = 'shop';
  
     // Biến lưu trữ kết nối
     public $cn = NULL;
