@@ -12,57 +12,43 @@ class Redirect {
 
 class UploadImage {
     private $check;
+    
     public function get_check() {
         return $this->check;
     }
+
     public function __construct($name = null) {
+        $this->check = 0;
         $target_dir = "../images/";
-        $target_file = $target_dir . basename($_FILES[$name]["name"]);
-        $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-        // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
-            $check = getimagesize($_FILES[$name]["tmp_name"]);
-            if($check !== false) {
-                echo "File ".basename($_FILES[$name]["name"]). " is an image - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "File " .basename($_FILES[$name]["name"])." is not an image.";
-                $uploadOk = 0;
-            }
-        }
-        // Check if file already exists
-        if (file_exists($target_file)) {
-            echo "Sorry, file " .basename($_FILES[$name]["name"])." already exists.";
-            $uploadOk = 0;
-        }
-        // Check file size
-        if ($_FILES[$name]["size"] > 5000000) {
-            echo "Sorry, your file ".basename($_FILES[$name]["name"]). " is too large.";
-            // print_r($_FILES[$name]["size"]);
-            $uploadOk = 0;
-        }
-        // Allow certain file formats
-        if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-        && $imageFileType != "gif" ) {
-            echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-            $uploadOk = 0;
-        }
-        // Check if $uploadOk is set to 0 by an error
-        if ($uploadOk == 0) {
-            echo "Sorry, your file ".basename($_FILES[$name]["name"]). " was not uploaded.";
-        // if everything is ok, try to upload file
+        // Kiểm tra là ảnh giả hay ảnh thật
+        $check = getimagesize($_FILES[$name]["tmp_name"]);
+        if($check == false) {
+            echo '<script>alert("File ' .basename($_FILES[$name]["name"]). 'is not an image")</script>';
         } else {
-            if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
-                echo "The file ". basename( $_FILES[$name]["name"]). " has been uploaded.";
+            // kiểm tra kích thước cho phép đơn vị byte
+            if ($_FILES[$name]["size"] > 5000000) {
+                echo "<script>alert('Sorry, your file ".basename($_FILES[$name]["name"]). " is too large.')</script>";
             } else {
-                echo "Sorry, there was an error uploading your file ".basename($_FILES[$name]["name"]). " ";
+                // Kiểm tra file có tồn tại trong sever hay chưa, nếu tồn tại thì đổi tên file
+                $target_file = $target_dir . basename($_FILES[$name]["name"]);
+                $i = 0;
+                while (file_exists($target_file)) {
+                    $target_file = $target_dir . $i .basename($_FILES[$name]["name"]);
+                    $i++;
+                }
+                // Kiểm tra định dạng ảnh cho phép
+                $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+                && $imageFileType != "gif" ) {
+                    echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.')</script>";
+                } else {
+                    if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
+                        $this->check = $target_file;
+                    } else {
+                        echo "<script>alert('Sorry, there was an error uploading your file ".basename($_FILES[$name]["name"]). "')</script> ";
+                    }
+                }
             }
-        }
-        if($uploadOk == 0 ){
-            $this->check = $uploadOk;
-        } else {
-            $this->check = $target_file;
         }
     }
 }

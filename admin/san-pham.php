@@ -6,7 +6,7 @@
     <div class="main sanpham">
         <div class="container">
             <h4 class="label label-primary">Sản phẩm</h4>
-            <a href="them-san-pham.php" class="btn btn-info">Thêm Sản phẩm</a>
+            <a href="them-san-pham.php" class="mb-1 btn btn-info">Thêm Sản phẩm</a>
             <div class="form-group">
                   <input type="text" name="noidung" class="form-control" id="noidung" placeholder="Tìm sản phẩm">
             </div>

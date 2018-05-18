@@ -6,7 +6,7 @@
     <div class="main theloai">
         <div class="container">
             <h4 class="label label-primary">Thể loại</h4>
-            <a href="them-the-loai.php" class="btn btn-info">Thêm thể loại</a>
+            <a href="them-the-loai.php" class="mb-1 btn btn-info">Thêm thể loại</a>
             <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
