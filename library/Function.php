@@ -31,9 +31,12 @@ class UploadImage {
             } else {
                 // Kiểm tra file có tồn tại trong sever hay chưa, nếu tồn tại thì đổi tên file
                 $target_file = $target_dir . basename($_FILES[$name]["name"]);
+                // cái target_file_out này để lấy đường link lưu vào cơ sở dữ liệu
+                $target_file_out = "images/".basename($_FILES[$name]["name"]);
                 $i = 0;
                 while (file_exists($target_file)) {
                     $target_file = $target_dir . $i .basename($_FILES[$name]["name"]);
+                    $target_file_out = "images/". $i .basename($_FILES[$name]["name"]);
                     $i++;
                 }
                 // Kiểm tra định dạng ảnh cho phép
@@ -43,7 +46,7 @@ class UploadImage {
                     echo "<script>alert('Sorry, only JPG, JPEG, PNG & GIF files are allowed.')</script>";
                 } else {
                     if (move_uploaded_file($_FILES[$name]["tmp_name"], $target_file)) {
-                        $this->check = $target_file;
+                        $this->check = $target_file_out;
                     } else {
                         echo "<script>alert('Sorry, there was an error uploading your file ".basename($_FILES[$name]["name"]). "')</script> ";
                     }

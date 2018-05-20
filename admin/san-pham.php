@@ -34,9 +34,9 @@
                                   <td>'. $sanpham["MoTa"] .'</td>
                                   <td>'. $sanpham["Gia"] .'</td>
                                   <td>
-                                    <img width="120px" height="100px" src="'. $sanpham["Anh1"] .'">
-                                    <img width="120px" height="100px" src="'. $sanpham["Anh2"] .'">
-                                    <img width="120px" height="100px" src="'. $sanpham["Anh3"] .'">
+                                    <img width="120px" height="100px" src="../'. $sanpham["Anh1"] .'">
+                                    <img width="120px" height="100px" src="../'. $sanpham["Anh2"] .'">
+                                    <img width="120px" height="100px" src="../'. $sanpham["Anh3"] .'">
                                   </td>
                                   <th>
                                       <a class="btn btn-info" href="sua-san-pham.php?Id='.$sanpham["Id"].'">Sửa</a>
