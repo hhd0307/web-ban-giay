@@ -72,8 +72,10 @@ require_once 'library/init.php';
 				<div class="header-right">
 					<div class="search">
 						<div class="search-text">
-							<input class="serch" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"
+							<form action="timsanpham.php" method="POST">
+							<input class="serch" id="noidung" name="noidung" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"
 							/>
+							</form>
 						</div>
 						<div class="clearfix"> </div>
 					</div>

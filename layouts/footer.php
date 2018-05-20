@@ -5,19 +5,19 @@
 			<div class="ftr-grids-block">
 				<div class="col-md-3 footer-grid">
 					<ul>
-						<li><a href="product.html">Accessories</a></li>
-						<li><a href="product.html">Hand bags</a></li>
-						<li><a href="product.html">Clothing</a></li>
-						<li><a href="product.html">Brands</a></li>
-						<li><a href="product.html">Watches</a></li>
+						<li><a href="#">Accessories</a></li>
+						<li><a href="#">Hand bags</a></li>
+						<li><a href="#">Clothing</a></li>
+						<li><a href="#">Brands</a></li>
+						<li><a href="#">Watches</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 footer-grid">
 					<ul>
-						<li><a href="login.html">Your Account</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-						<li><a href="product.html">Store Locator</a></li>
-						<li><a href="pressroom.html">Press Room</a></li>
+						<li><a href="#">Your Account</a></li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Store Locator</a></li>
+						<li><a href="#">Press Room</a></li>
 					</ul>
 				</div>
 				<div class="col-md-3 footer-grid">

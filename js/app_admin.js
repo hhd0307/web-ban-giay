@@ -23,4 +23,19 @@ $(document).ready(function() {
             $('tr[Id='+Id+']').html("");
         });
     });
+
+    // Tìm kiếm sản phẩm ở client
+    $('.sanpham #noidung').keyup(function(e) {
+        $.ajax({
+            url: 'tim-san-pham.php',
+            type: 'POST',
+            dataType: 'text',
+            data: {
+                noidung: $(".sanpham #noidung").val(),
+            }
+        }).done(function(ketqua) {
+            $('.body-table-san-pham').html("");
+            $('.body-table-san-pham').append(ketqua);
+            });
+    });
 });
