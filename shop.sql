@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 17, 2018 lúc 05:59 PM
+-- Thời gian đã tạo: Th5 20, 2018 lúc 01:53 PM
 -- Phiên bản máy phục vụ: 10.1.31-MariaDB
 -- Phiên bản PHP: 7.2.3
 
@@ -63,7 +63,14 @@ CREATE TABLE `sanpham` (
 --
 
 INSERT INTO `sanpham` (`Id`, `Ten`, `Gia`, `MoTa`, `TheLoaiId`, `Anh1`, `Anh2`, `Anh3`) VALUES
-(2, '1', '1', '1', 2, '../images/Chrysanthemum.jpg', '../images/Desert.jpg', '../images/Hydrangeas.jpg');
+(9, 'Sản phẩm A', '10$', 'Mô tả A', 2, 'images/Chrysanthemum.jpg', 'images/Desert.jpg', 'images/Hydrangeas.jpg'),
+(10, 'Sản phẩm B', '12$', 'Mô tả sản phẩm B', 3, 'images/Koala.jpg', 'images/Lighthouse.jpg', 'images/Penguins.jpg'),
+(11, 'Sản phẩm C', '14$', 'Mô tả sản phẩm C', 2, 'images/0Lighthouse.jpg', 'images/0Penguins.jpg', 'images/Jellyfish.jpg'),
+(12, 'Tên 1', '1$', 'Tên 1', 3, 'images/1Penguins.jpg', 'images/1Lighthouse.jpg', 'images/0Hydrangeas.jpg'),
+(13, 'Tên 2', '12$', 'Tên 2', 3, 'images/0Jellyfish.jpg', 'images/1Hydrangeas.jpg', 'images/0Desert.jpg'),
+(14, 'Tên 3', '3$', 'Tên 3', 2, 'images/1Desert.jpg', 'images/2Hydrangeas.jpg', 'images/1Jellyfish.jpg'),
+(15, 'Tên 4', '4$', 'Tên 4', 3, 'images/2Jellyfish.jpg', 'images/3Hydrangeas.jpg', 'images/2Desert.jpg'),
+(16, 'Tên 6', 'Tên 6', 'Tên 6', 3, 'images/Tulips.jpg', 'images/2Penguins.jpg', 'images/2Lighthouse.jpg');
 
 -- --------------------------------------------------------
 
@@ -115,19 +122,19 @@ ALTER TABLE `theloai`
 -- AUTO_INCREMENT cho bảng `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `sanpham`
 --
 ALTER TABLE `sanpham`
-  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT cho bảng `theloai`
 --
 ALTER TABLE `theloai`
-  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
