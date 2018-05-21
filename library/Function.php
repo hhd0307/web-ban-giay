@@ -10,6 +10,7 @@ class Redirect {
     }
 }
 
+
 class UploadImage {
     private $check;
     
@@ -37,7 +38,7 @@ class UploadImage {
                 while (file_exists($target_file)) {
                     $target_file = $target_dir . $i .basename($_FILES[$name]["name"]);
                     $target_file_out = "images/". $i .basename($_FILES[$name]["name"]);
-                    $i++;
+                    $i = $i + 1;
                 }
                 // Kiểm tra định dạng ảnh cho phép
                 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

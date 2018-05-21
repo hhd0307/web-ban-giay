@@ -20,40 +20,49 @@
         $url = isset($_POST['url']) ? trim(htmlspecialchars(addslashes($_POST['url']))) : '';
         if($Ten == "" || $MoTa == "" || $Gia == "" || $TheLoaiId == "") {
             echo '<script>alert("Không được để trống các trường")</script>';
+            new Redirect("$url");
         } else {
             $Anh1 = (new UploadImage('Anh1'))->get_check();
             if($Anh1 == "0") {
                 echo '<script>alert("Ảnh 1 bị lỗi")</script>';
+                new Redirect("$url");
             } else {
                 $Anh2 = (new UploadImage('Anh2'))->get_check();
                 if($Anh2 == "0") {
                     unlink($Anh1);
                     echo '<script>alert("Ảnh 2 bị lỗi")</script>';
+                    new Redirect("$url");
                 } else {
                     $Anh3 = (new UploadImage('Anh3'))->get_check();
                     if($Anh3 == "0") {
                         unlink($Anh2);
                         echo '<script>alert("Ảnh 3 bị lỗi")</script>';
+                        new Redirect("$url");
                     } else {
+                        // var_dump($Anh1, $Anh2, $Anh3);
+                        $sql_get_item = "SELECT * FROM sanpham WHERE Id='$Id'";
+                        $sanpham = $db->fetch_assoc($sql_get_item)[0];
+                        // var_dump($sanpham['Anh1']);
                         // Xóa file ảnh đã lưu trước đó ở bộ nhớ
-                        unlink($sanpham['Anh1']);
-                        unlink($sanpham['Anh2']);
-                        unlink($sanpham['Anh3']);
+                        unlink("../" . $sanpham['Anh1']);
+                        unlink("../" .$sanpham['Anh2']);
+                        unlink("../" .$sanpham['Anh3']);
+                        // var_dump(unlink("../" . $sanpham['Anh1']));
                         $sql = "UPDATE sanpham 
-                                SET 'Ten' = '$Ten',
-                                'MoTa' = '$MoTa',
-                                'Gia' = '$Gia',
-                                'TheLoaiId' = '$TheLoaiId',
-                                'Anh1' = '$Anh1',
-                                'Anh2' = '$Anh2',
-                                'Anh3' = '$Anh3' 
+                                SET Ten = '$Ten',
+                                MoTa = '$MoTa',
+                                Gia = '$Gia',
+                                TheLoaiId = '$TheLoaiId',
+                                Anh1 = '$Anh1',
+                                Anh2 = '$Anh2',
+                                Anh3 = '$Anh3' 
                                 WHERE Id = '$Id';";
+                        // var_dump($sql);
                         $db->query($sql);
                         new Redirect('san-pham.php');
                     }
                 }
             }
-            new Redirect('san-pham.php');
         }
     }
 ?>
