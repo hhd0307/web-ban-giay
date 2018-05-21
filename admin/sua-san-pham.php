@@ -68,7 +68,7 @@
 ?>
 
 <?php 
-    $title = 'Thêm sản phẩm';
+    $title = 'Sửa sản phẩm';
     require_once 'layouts/header.php'; 
 ?>
     <!-- main -->
