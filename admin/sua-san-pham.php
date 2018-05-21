@@ -74,7 +74,7 @@
     <!-- main -->
     <div class="main theloai">
         <div class="container">
-            <h4 class="label label-primary">Thêm sản phẩm</h4>
+            <h4 class="label label-primary">Sửa sản phẩm</h4>
             <form action="sua-san-pham.php" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="Ten">Tên</label>
